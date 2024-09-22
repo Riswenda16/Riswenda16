@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eksklusif</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #2C3E50, #34495E);
+            color: #ECF0F1;
+            font-family: 'Poppins', sans-serif;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .container {
+            margin: 40px auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 1.9);
+            background-color: rgba(44, 62, 80, 0.85);
+            padding: 30px;
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        .spotify-container {
+            margin: 20px auto;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(to bottom right, #1abc9c, #16a085);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+        .spotify-container:hover {
+            transform: scale(1.05);
+        }
+        .spotify-container h3 {
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        iframe {
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+        .form-title {
+            background-color: #2980B9;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-align: center;
+            color: #FFFFFF;
+        }
+        .card {
+            background: linear-gradient(to bottom right, #8E44AD, #2980B9);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+        }
+        .card-title {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #FFFFFF;
+        }
+        .btn-success {
+            background: linear-gradient(to right, #E74C3C, #C0392B);
+            border: none;
+            border-radius: 25px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .btn-success:hover {
+            transform: scale(1.05);
+            background: linear-gradient(to right, #C0392B, #E74C3C);
+        }
+        .welcome-card {
+            margin-top: 20px;
+        }
+        .icon {
+            margin-right: 10px;
+        }
+        .text-muted {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #BDC3C7;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #BDC3C7;
+        }
+       
+        .icon {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container col-md-8 col-lg-6 col-xl-4 mx-auto">
+        <div class="spotify-container">
+            <h3>Dengarkan Musik Kesukaanmu!</h3>
+            <iframe src="https://open.spotify.com/embed/track/3zmN19fLAcKeDaajrIdWLB?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <h4 class="form-title"><i class="fas fa-user-plus"></i> Yuk Isi Nama Kamu Disini!</h4>
+        <hr>
+        <div class="form-group row">
+            <label for="nameInput" class="col-sm-3 col-form-label"><i class="fas fa-user icon"></i>Nama</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="nameInput" placeholder="Masukkan Nama" required>
+                <small class="text-muted">Contoh: John Doe</small>
+            </div>
+        </div>
+        <button class="btn btn-success btn-block" id="continueButton">Lanjut <i class="fas fa-arrow-right"></i></button>
+    </div>
+    
+    <div class="container col-md-8 col-lg-6 col-xl-4 mx-auto" id="welcomeContainer" style="display: none;">
+       <div class="spotify-container">
+            <h3>Dengarkan Musik Kesukaanmu!</h3>
+            <iframe src="https://open.spotify.com/embed/track/3zmN19fLAcKeDaajrIdWLB?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div> 
+        <h2 class="text-center">Selamat Datang! <i class="fas fa-smile"></i></h2>
+        <p id="welcomeMessage" class="text-center"></p>
+        <div class="card welcome-card">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-comments"></i> Pesan untuk Kamu</h5>
+                <p class="card-text" id="userMessage">
+                    Halo! Admin cuma mau nyampain dan bertanya nih! Kenapa admin belum pernah dan tidak bisa move-on ya dari kamu? 
+                    Sejak terakhir 09 Desember 2023 lalu... Mungkin itu waktu yang sudah hampir menuju 1 tahun. 
+                    09 Desember menjadi hari yang spesial bagi dirimu. Kalo User beranggapan bahwa Admin Telah Move-on, User salah besar. 
+                    Klik lanjut ya!
+                </p>
+            </div>
+        </div>
+        <div class="text-right mt-3">
+            <button class="btn btn-success" id="nextButton">Lanjut <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+    
+    <div class="container col-md-8 col-lg-6 col-xl-4 mx-auto" id="nextSection" style="display: none;">
+        
+        <h2 class="text-center">Oke Ini Kelanjutannya! <i class="fas fa-pencil-alt"></i></h2>
+        <div class="card welcome-card">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-comments"></i> Pesan Melanjutkan</h5>
+                <p class="card-text" id="userMessage">
+                    Disini admin melanjutkan pesan yang terakhir ya! yang saya lihat admin selalu galau di StoryGram atau StoryWhatsApp. 
+                    Seperti yang admin ucapkan dahulu... 1 tahun lalu atau bahkan kemarin lewat chat, masih inget? 
+                    Admin tidak akan kecewa kamu akan menjalin hubungan dengan siapa ya.. admin cuma ingin melihat cara bahagia kamu 
+                    dengan pilihan kamu... admin tidak akan merebut kebahagiaan kamu...
+                    satu hal yang harus kamu tahu... mungkin ketika membuat website ini admin sedikit meneteskan air mata... 
+                    ya begitulah... antara percaya atau tidak... admin bukan menangisi kamu mungkin.. admin hanya menangisi tentang 
+                    Kenapa admin tidak bisa menghilangkan rasa move-on loh kenapa?? kenapa??...
+                    jawaban admin dan dalam pikiran admin mungkin hanya berfikir bahwa admin sudah terlalu banyak berharap dalam jangka 
+                    waktu yang cukup panjang seperti yang admin ucapkan sekitar 1 tahun lalu.. masih inget?
+                    satu lagi, admin tidak menjamin admin akan bisa move-on dalam jangka dekat, g tau kenapa rasanya beda banget sama kamu...
+                    Bahkan jika kamu tahu, admin sudah membohongi perasaan admin sendiri...
+                    admin pernah jatuh cinta pada seseorang bahkan deket dengannya... tapi... 
+                    admin tidak bisa dengan wanita itu... bukan karena dia tidak cantik atau apa... admin selalu teringat semua tentang kamu.
+                </p>
+            </div>
+        </div>
+        <div class="text-right mt-3">
+            <button class="btn btn-success" id="nextButton2">
+                Lanjut <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="btn btn-secondary ml-2" id="backButton">
+                Kembali <i class="fas fa-arrow-left"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="container col-md-8 col-lg-6 col-xl-4 mx-auto" id="finalSection" style="display: none;">
+        <div class="spotify-container">
+            <h3>Dengarkan Musik Kesukaanmu!</h3>
+            <iframe src="https://open.spotify.com/embed/track/3zmN19fLAcKeDaajrIdWLB?utm_source=generator" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <h2 class="text-center">Akhir Kata... <i class="fas fa-heart"></i></h2>
+        <div class="card welcome-card">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-comments"></i> Pesan Terakhir</h5>
+                <p class="card-text">
+                    Terima kasih telah meluangkan waktu untuk membaca pesan ini. Admin berharap kamu selalu bahagia 
+                    dengan keputusanmu dan tidak pernah melupakan bahwa kita akan selalu menjadi sahabat. 
+                    Jika ada waktu, admin akan selalu siap mendengarkan kabarmu. Ingat, semua yang terjadi memiliki makna 
+                    dan membawa kita ke arah yang lebih baik. Jaga diri dan semoga kita bertemu lagi!
+                </p>
+            </div>
+        </div>
+        <div class="text-right mt-3">
+            <button class="btn btn-success" id="nextFinalButton">
+                Lanjut <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="btn btn-secondary ml-2" id="finalBackButton">
+                Kembali <i class="fas fa-arrow-left"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="container col-md-8 col-lg-6 col-xl-4 mx-auto" id="finalAkhir" style="display: none;">
+         
+        <h2 class="text-center"> Terimakasih! <i class="fas fa-heart"></i></h2>
+        <div class="card welcome-card">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-comments"></i> Pesan Terakhir</h5>
+                <p class="card-text">
+                    Sebelum di Close admin akan memberikan satu persembahan animasi
+                    yang indahnya setara dengan yang mengakses website khusus ini;) 
+                    Klik Lanjut Ya!
+                </p>
+            </div>
+        </div>
+        <div class="text-right mt-3">
+            <button class="btn btn-success" id="nextFinalButton2">
+                Lanjut <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="btn btn-secondary ml-2" id="finalBackButton2">
+                Kembali <i class="fas fa-arrow-left"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 @ettrs.riswendazkz_. Akses Hak baru.</p>
+    </div>
+
+    <script>
+        const continueButton = document.getElementById('continueButton');
+        const registrationContainer = document.querySelector('.container:nth-of-type(1)');
+        const welcomeContainer = document.getElementById('welcomeContainer');
+        const nameInput = document.getElementById('nameInput');
+        const welcomeMessage = document.getElementById('welcomeMessage');
+
+        continueButton.addEventListener('click', function() {
+            const name = nameInput.value.trim();
+            console.log(`Name entered: "${name}"`); // Debugging line
+            if (name) {
+                registrationContainer.style.display = 'none';
+                welcomeContainer.style.display = 'block';
+                welcomeMessage.textContent = `Halo, ${name}! Terima kasih telah mendaftar.`;
+            } else {
+                alert('Mohon masukkan nama Anda.');
+            }
+        });
+
+        const nextButton = document.getElementById('nextButton');
+        nextButton.addEventListener('click', function() {
+            welcomeContainer.style.display = 'none';
+            document.getElementById('nextSection').style.display = 'block'; 
+        });
+
+        const nextButton2 = document.getElementById('nextButton2');
+        nextButton2.addEventListener('click', function() {
+            document.getElementById('nextSection').style.display = 'none';
+            document.getElementById('finalSection').style.display = 'block';
+        });
+
+        const backButton = document.getElementById('backButton');
+        backButton.addEventListener('click', function() {
+            document.getElementById('nextSection').style.display = 'none';
+            welcomeContainer.style.display = 'block'; 
+        });
+
+        const nextFinalButton = document.getElementById('nextFinalButton');
+        nextFinalButton.addEventListener('click', function() {
+            document.getElementById('finalSection').style.display = 'none';
+            document.getElementById('finalAkhir').style.display = 'block'; 
+        });
+
+        const finalBackButton = document.getElementById('finalBackButton');
+        finalBackButton.addEventListener('click', function() {
+            document.getElementById('finalSection').style.display = 'none';
+            document.getElementById('nextSection').style.display = 'block'; 
+        });
+
+        const nextFinalButton2 = document.getElementById('nextFinalButton2');
+        nextFinalButton2.addEventListener('click', function() {
+            window.location.href = 'flower.html';
+        });
+
+        const finalBackButton2 = document.getElementById('finalBackButton2');
+        finalBackButton2.addEventListener('click', function() {
+            document.getElementById('finalAkhir').style.display = 'none';
+            document.getElementById('finalSection').style.display = 'block'; 
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
